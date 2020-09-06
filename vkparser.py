@@ -27,9 +27,9 @@ def take_1000_posts():
     return all_posts
 
 def file_writer(data):
-    with open('fit4life.csv','w') as file:
+    with open('fit4life.csv', 'w', encoding='utf8') as file:
         a_pen = csv.writer(file)
-        a_pen.writerow('likes', 'body', 'url')
+        a_pen.writerow(('likes', 'body', 'url'))
         for post in data:
             try:
                 if post['attachments'][0]['type']:
