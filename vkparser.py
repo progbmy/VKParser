@@ -6,12 +6,12 @@ import csv
 def take_1000_posts():
     token = 'fcff139cfcff139cfcff139ce5fc8cd84bffcfffcff139ca3aa582c0de1169945c5396e'
     version = 5.92  # Прописываем версию API VK
-    domain = 'fit4life_official'  # Пишем адрес группы
+    domain = 'trkterra'  # Пишем адрес группы trkterra fit4life_official
     count = 100
     offset = 0
     all_posts = []
 
-    while offset < 1000:
+    while offset < 10000:
         response = requests.get('https://api.vk.com/method/wall.get',
                 params = {
                     'access_token':token,
@@ -27,7 +27,7 @@ def take_1000_posts():
     return all_posts
 
 def file_writer(data):
-    with open('fit4life.csv', 'w', encoding='utf8') as file:
+    with open('trkterra.csv', 'w', encoding='utf8') as file:
         a_pen = csv.writer(file)
         a_pen.writerow(('likes', 'body', 'url'))
         for post in data:
